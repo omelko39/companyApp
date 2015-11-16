@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SBT: com.typesafe.play:build-link:2.3.9:jar">
+    <CLASSES>
+      <root url="jar:///opt/activator-1.3.4/repository/com.typesafe.play/build-link/2.3.9/jars/build-link.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
