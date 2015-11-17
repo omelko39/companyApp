@@ -6,7 +6,7 @@ package model.db
 
 import play.api.db.slick.Config.driver.simple._
 
-case class CompanyDB(id: Int, name: String, value: Int, parent: Boolean)
+case class CompanyDB(id: Option[Int], name: String, value: Int, parent: Boolean)
 
 class CompaniesDB(tag: Tag) extends Table[CompanyDB](tag, Some("public"), "company") {
 
@@ -19,5 +19,5 @@ class CompaniesDB(tag: Tag) extends Table[CompanyDB](tag, Some("public"), "compa
   def parent = column[Boolean]("parent", O.NotNull)
 
 
-  override def * = (id, name, value, parent) <> (CompanyDB.tupled, CompanyDB.unapply)
+  override def * = (id.?, name, value, parent) <> (CompanyDB.tupled, CompanyDB.unapply)
 }

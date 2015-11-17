@@ -20,7 +20,7 @@ trait DefaultCompanyServiceDAOCake extends CompanyServiceDAOCake {
 
     def fillCompany(company: CompanyDB) = {
       val list  = ListBuffer.empty[Company]
-      list ++= companyDaoDB.getChild(company.id).filter(el => el.isDefined).map(obj => loadByPK(obj.get.id))
+      list ++= companyDaoDB.getChild(company.id.get).filter(el => el.isDefined).map(obj => loadByPK(obj.get.id.get))
 
       Company(
       company.id,
@@ -43,12 +43,12 @@ trait DefaultCompanyServiceDAOCake extends CompanyServiceDAOCake {
     override def deleteByPKs(ids: Traversable[Int]): Traversable[Int] = ???
 
     override def deleteByPK(id: Int): Boolean = {
-      companyDaoDB.loadByPK(id) map (company =>
-           companyDaoDB.getChild(company.id).filter(el => el.isDefined).map(el => deleteByPK(el.get.id)).exists(el => !el) match {
-             case true => companyDaoDB.deleteByPK(id)
-             case false => false
-           }
-        ) get
+      companyDaoDB.loadByPK(id) map { company =>
+        companyDaoDB.getChild(company.id.get).filter(el => el.isDefined).map(el => deleteByPK(el.get.id.get)).exists(el => !el)
+        companyDaoDB.deleteByPK(id)
+        companyDaoDB.deleteParent(id)
+        true
+      } get
     }
 
     override def updateByObjects(objs: Traversable[Company]): Traversable[Company] = ???
@@ -59,7 +59,22 @@ trait DefaultCompanyServiceDAOCake extends CompanyServiceDAOCake {
 
     override def insertByObjects(objs: Traversable[Company]): Traversable[Company] = ???
 
-    override def insertByObject(obj: Company): Option[Company] = Some(fillCompany(companyDaoDB.insertByObject(companyToCompanyDB(obj)).get))
+    override def insertByObject(obj: Company, parentId: Option[Int]): Option[Company] = {
+      parentId match {
+        case Some(id) =>
+          companyDaoDB.insertByObject(companyToCompanyDB(obj)) match {
+            case Some(el) =>
+              companyDaoDB.insertChild(el.id.get, id)
+              Some(fillCompany(el))
+            case None => None
+          }
+        case None =>
+          companyDaoDB.insertByObject(companyToCompanyDB(obj)) match {
+            case Some(el) => Some(fillCompany(el))
+            case None => None
+          }
+      }
+    }
 
     override def list(): List[Company] = {
       companyDaoDB.list().map(fillCompany).toList

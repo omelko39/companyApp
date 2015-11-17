@@ -7,7 +7,7 @@ import play.api.db.slick.Config.driver.simple._
  * Created by nazar on 16.11.15.
  */
 
-case class ChildDB(id: Int, parent: Int, child: Int)
+case class ChildDB(id: Option[Int], parent: Int, child: Int)
 
 class Childs(tag: Tag) extends Table[ChildDB](tag, Some("public"), "child") {
 
@@ -17,5 +17,5 @@ class Childs(tag: Tag) extends Table[ChildDB](tag, Some("public"), "child") {
 
   def child = column[Int]("child", O.NotNull)
 
-  override def * = (id, parent, child) <> (ChildDB.tupled, ChildDB.unapply)
+  override def * = (id.?, parent, child) <> (ChildDB.tupled, ChildDB.unapply)
 }

@@ -17,6 +17,9 @@ trait CompanyDAOCake {
   with InsertCake[CompanyDB] {
     def getChild(id: Int): Traversable[Option[CompanyDB]]
     def list(): Traversable[CompanyDB]
+    def insertChild(childId: Int, parentId: Int): Boolean
+    def deleteChild(childId: Int): Boolean
+    def deleteParent(parentId: Int): Boolean
   }
 
 }

@@ -31,7 +31,7 @@ package object cake {
 
   trait InsertCake[T]{
 
-    def insertByObject(obj: T): Option[T]
+    def insertByObject(obj: T, parentId: Option[Int]): Option[T]
 
     def insertByObjects(objs: Traversable[T]): Traversable[T]
   }
