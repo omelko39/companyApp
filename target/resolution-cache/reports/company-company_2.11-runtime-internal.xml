@@ -7,8 +7,20 @@
 		revision="1.0-SNAPSHOT"
 		conf="runtime-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20151116170545"/>
+		date="20151117131411"/>
 	<dependencies>
+		<module organisation="org.webjars" name="angularjs">
+			<revision name="1.3.8" status="release" pubdate="20141220192444" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://webjars.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="55">
+				<license name="MIT License" url="https://github.com/angular/angular.js/blob/master/LICENSE"/>
+				<metadata-artifact status="no" details="" size="31179" time="0" location="/home/nazar/.ivy2/cache/org.webjars/angularjs/ivy-1.3.8.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/webjars/angularjs/1.3.8/angularjs-1.3.8.pom"/>
+				<caller organisation="company" name="company_2.11" conf="compile, runtime-internal, runtime, optional" rev="1.3.8" rev-constraint-default="1.3.8" rev-constraint-dynamic="1.3.8" callerrev="1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="angularjs" type="jar" ext="jar" status="no" details="" size="3191725" time="0" location="/home/nazar/.ivy2/cache/org.webjars/angularjs/jars/angularjs-1.3.8.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/webjars/angularjs/1.3.8/angularjs-1.3.8.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
 		<module organisation="org.postgresql" name="postgresql">
 			<revision name="9.4-1201-jdbc41" status="release" pubdate="20150225181525" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://jdbc.postgresql.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="54">
 				<license name="The PostgreSQL License" url="http://www.postgresql.org/about/licence/"/>

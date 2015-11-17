@@ -1,16 +1,13 @@
 package repository
 
 
-import model._
-import model.db.{Childs, CompaniesDB, CompanyDB}
+import model.db.{ChildDB, Childs, CompaniesDB, CompanyDB}
+import play.api.Logger
 import play.api.db.slick.Config.driver.simple._
 import cake.CompanyDAOCake
 
 import scala.slick.jdbc.{GetResult, StaticQuery => Q}
 
-/**
- * Created by andrew-stefaniv on 24.07.15.
- */
 trait DefaultCompanyDAOCake extends CompanyDAOCake {
 
   override def companyDaoDB = new DefaultCompanyDAO
@@ -51,6 +48,7 @@ trait DefaultCompanyDAOCake extends CompanyDAOCake {
     }
 
     override def insertByObject(obj: CompanyDB): Option[CompanyDB] = withSession { implicit s =>
+      Logger.debug(obj.toString)
       Some((query returning query) += obj)
     }
 
@@ -70,6 +68,18 @@ trait DefaultCompanyDAOCake extends CompanyDAOCake {
 
     override def list(): Traversable[CompanyDB] = withSession { implicit s =>
       query.filter(_.parent === true).list
+    }
+
+    override def insertChild(childId: Int, parentId: Int): Boolean = withSession { implicit s =>
+      ((child returning child) += ChildDB(None, parentId, childId)).id.isDefined
+    }
+
+    override def deleteChild(childId: Int): Boolean = withSession { implicit s =>
+      child.filter(_.child === childId).delete == 1
+    }
+
+    override def deleteParent(parentId: Int): Boolean = withSession { implicit s =>
+      child.filter(_.parent === parentId).delete == 1
     }
   }
 

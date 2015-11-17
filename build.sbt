@@ -11,7 +11,8 @@ libraryDependencies ++= Seq(
   cache,
   ws,
   "com.typesafe.play" %% "play-slick" % "0.8.1",
-  "org.postgresql" % "postgresql" % "9.4-1201-jdbc41"
+  "org.postgresql" % "postgresql" % "9.4-1201-jdbc41",
+  "org.webjars" % "angularjs" % "1.3.8"
 )
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"

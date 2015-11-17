@@ -20,12 +20,28 @@ object index extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Form
       _display_ {
 
 Seq[Any](format.raw/*1.19*/("""
+"""),format.raw/*2.1*/("""<!DOCTYPE html>
 
-"""),_display_(/*3.2*/main("Welcome to Play")/*3.25*/ {_display_(Seq[Any](format.raw/*3.27*/("""
+<html>
+    <head>
+        <title>"""),_display_(/*6.17*/message),format.raw/*6.24*/("""</title>
+        <script src=""""),_display_(/*7.23*/routes/*7.29*/.Assets.at("lib/angularjs/angular.js")),format.raw/*7.67*/(""""></script>
+        <script src=""""),_display_(/*8.23*/routes/*8.29*/.Assets.at("javascripts/hello.js")),format.raw/*8.63*/(""""></script>
+    </head>
+    <body ng-app="App" ng-controller="Main">
+        <button data-ng-click="pl = true">+</button>
+        <div ng-show="pl == true">
+            Name:<input type="text" ng-model="tmp.name">
+            Value:<input type="number" ng-model="tmp.value">
+        </div>
 
-    """),_display_(/*5.6*/play20/*5.12*/.welcome(message)),format.raw/*5.29*/("""
+        <button data-ng-click="create(undefined, tmp); pl = false">save</button>
+        <h1>*----------------------------*</h1>
 
-""")))}),format.raw/*7.2*/("""
+        <ng-include src="'assets/include.html'"></ng-include>
+    </body>
+</html>
+
 """))}
   }
 
@@ -38,11 +54,11 @@ Seq[Any](format.raw/*1.19*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Mon Nov 16 17:05:46 EET 2015
+                  DATE: Tue Nov 17 14:14:21 EET 2015
                   SOURCE: /projects/Company/app/views/index.scala.html
-                  HASH: 6ccab1e3b2ad8ca4c9794c22023c616c4b7c730b
-                  MATRIX: 505->1|610->18|638->21|669->44|708->46|740->53|754->59|791->76|823->79
-                  LINES: 19->1|22->1|24->3|24->3|24->3|26->5|26->5|26->5|28->7
+                  HASH: 22e4959984296958ffc6baeb48b9591b464eac06
+                  MATRIX: 505->1|610->18|637->19|714->70|741->77|798->108|812->114|870->152|930->186|944->192|998->226
+                  LINES: 19->1|22->1|23->2|27->6|27->6|28->7|28->7|28->7|29->8|29->8|29->8
                   -- GENERATED --
               */
           

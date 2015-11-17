@@ -4,7 +4,7 @@
 		module="company_2.11"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20151116170545"
+		publication="20151117131410"
 	>
 		<description>
 		Company
@@ -43,5 +43,6 @@
 		<dependency org="com.typesafe.play" name="play-ws_2.11" rev="2.3.9" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-slick_2.11" rev="0.8.1" conf="compile->default(compile)"/>
 		<dependency org="org.postgresql" name="postgresql" rev="9.4-1201-jdbc41" conf="compile->default(compile)"/>
+		<dependency org="org.webjars" name="angularjs" rev="1.3.8" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

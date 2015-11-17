@@ -1,6 +1,6 @@
 // @SOURCE:/projects/Company/conf/routes
-// @HASH:831c1ef1764f6f03847b9116f24324473d5ed200
-// @DATE:Mon Nov 16 19:48:17 EET 2015
+// @HASH:ae451257895598dca765c7ebd876aa40d8984c06
+// @DATE:Tue Nov 17 13:24:33 EET 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -14,6 +14,8 @@ import _root_.controllers.Assets.Asset
 import Router.queryString
 
 
+// @LINE:17
+// @LINE:15
 // @LINE:13
 // @LINE:11
 // @LINE:9
@@ -25,20 +27,36 @@ class ReverseAssets {
 
 
 // @LINE:9
-def versioned(file:Asset): Call = {
+def at(file:String): Call = {
    implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
-   Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[Asset]].unbind("file", file))
+   Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
 }
                         
 
 }
                           
 
+// @LINE:17
+// @LINE:15
 // @LINE:13
 // @LINE:11
 // @LINE:6
 class ReverseApplication {
 
+
+// @LINE:17
+def create(): Call = {
+   import ReverseRouteContext.empty
+   Call("POST", _prefix + { _defaultPrefix } + "create")
+}
+                        
+
+// @LINE:13
+def delete(id:Int): Call = {
+   import ReverseRouteContext.empty
+   Call("GET", _prefix + { _defaultPrefix } + "delete/" + implicitly[PathBindable[Int]].unbind("id", id))
+}
+                        
 
 // @LINE:11
 def list(): Call = {
@@ -47,10 +65,10 @@ def list(): Call = {
 }
                         
 
-// @LINE:13
-def delete(id:Int): Call = {
+// @LINE:15
+def update(): Call = {
    import ReverseRouteContext.empty
-   Call("GET", _prefix + { _defaultPrefix } + "delete/" + implicitly[PathBindable[Int]].unbind("id", id))
+   Call("POST", _prefix + { _defaultPrefix } + "update")
 }
                         
 
@@ -67,6 +85,8 @@ def index(): Call = {
                   
 
 
+// @LINE:17
+// @LINE:15
 // @LINE:13
 // @LINE:11
 // @LINE:9
@@ -79,11 +99,11 @@ class ReverseAssets {
 
 
 // @LINE:9
-def versioned : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Assets.versioned",
+def at : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Assets.at",
    """
       function(file) {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[PathBindable[Asset]].javascriptUnbind + """)("file", file)})
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("file", file)})
       }
    """
 )
@@ -92,11 +112,35 @@ def versioned : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:17
+// @LINE:15
 // @LINE:13
 // @LINE:11
 // @LINE:6
 class ReverseApplication {
 
+
+// @LINE:17
+def create : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.create",
+   """
+      function() {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "create"})
+      }
+   """
+)
+                        
+
+// @LINE:13
+def delete : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.delete",
+   """
+      function(id) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "delete/" + (""" + implicitly[PathBindable[Int]].javascriptUnbind + """)("id", id)})
+      }
+   """
+)
+                        
 
 // @LINE:11
 def list : JavascriptReverseRoute = JavascriptReverseRoute(
@@ -109,12 +153,12 @@ def list : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:13
-def delete : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.delete",
+// @LINE:15
+def update : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.update",
    """
-      function(id) {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "delete/" + (""" + implicitly[PathBindable[Int]].javascriptUnbind + """)("id", id)})
+      function() {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "update"})
       }
    """
 )
@@ -137,6 +181,8 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
+// @LINE:17
+// @LINE:15
 // @LINE:13
 // @LINE:11
 // @LINE:9
@@ -149,19 +195,33 @@ class ReverseAssets {
 
 
 // @LINE:9
-def versioned(path:String, file:Asset): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Assets.versioned(path, file), HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "versioned", Seq(classOf[String], classOf[Asset]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
+def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Assets.at(path, file), HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )
                       
 
 }
                           
 
+// @LINE:17
+// @LINE:15
 // @LINE:13
 // @LINE:11
 // @LINE:6
 class ReverseApplication {
 
+
+// @LINE:17
+def create(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Application]).create(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "create", Seq(), "POST", """""", _prefix + """create""")
+)
+                      
+
+// @LINE:13
+def delete(id:Int): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Application]).delete(id), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "delete", Seq(classOf[Int]), "GET", """""", _prefix + """delete/$id<[^/]+>""")
+)
+                      
 
 // @LINE:11
 def list(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
@@ -169,9 +229,9 @@ def list(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:13
-def delete(id:Int): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Application]).delete(id), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "delete", Seq(classOf[Int]), "GET", """""", _prefix + """delete/$id<[^/]+>""")
+// @LINE:15
+def update(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Application]).update(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "update", Seq(), "POST", """""", _prefix + """update""")
 )
                       
 

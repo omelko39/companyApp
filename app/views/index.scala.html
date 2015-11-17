@@ -1,7 +1,23 @@
 @(message: String)
+<!DOCTYPE html>
 
-@main("Welcome to Play") {
+<html>
+    <head>
+        <title>@message</title>
+        <script src="@routes.Assets.at("lib/angularjs/angular.js")"></script>
+        <script src="@routes.Assets.at("javascripts/hello.js")"></script>
+    </head>
+    <body ng-app="App" ng-controller="Main">
+        <button data-ng-click="pl = true">+</button>
+        <div ng-show="pl == true">
+            Name:<input type="text" ng-model="tmp.name">
+            Value:<input type="number" ng-model="tmp.value">
+        </div>
 
-    @play20.welcome(message)
+        <button data-ng-click="create(undefined, tmp); pl = false">save</button>
+        <h1>*----------------------------*</h1>
 
-}
+        <ng-include src="'assets/include.html'"></ng-include>
+    </body>
+</html>
+
