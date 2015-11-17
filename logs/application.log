@@ -1,13 +1,13 @@
-2015-11-17 14:29:04,579 - [INFO] - from play in pool-4-thread-5 
+2015-11-17 16:33:24,702 - [INFO] - from play in pool-4-thread-2 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-17 14:29:07,554 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-17 16:33:36,912 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:postgresql://localhost:5432/company
 
-2015-11-17 14:29:07,610 - [ERROR] - from application in New I/O worker #1 
+2015-11-17 16:33:36,967 - [ERROR] - from application in New I/O worker #1 
 
 
-! @6o6fci0l4 - Internal server error, for (GET) [/] ->
+! @6o6g31042 - Internal server error, for (GET) [/] ->
 
 play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
 	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:510) ~[play-jdbc_2.11.jar:2.3.9]
@@ -40,98 +40,18 @@ play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evoluti
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.11.6.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.11.6.jar:na]
 
-2015-11-17 14:29:08,973 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-17 16:33:38,377 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:postgresql://localhost:5432/company
 
-2015-11-17 14:29:09,040 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-17 16:33:38,443 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-11-17 14:29:30,441 - [DEBUG] - from application in play-akka.actor.default-dispatcher-4 
-CompanyDB(None,test,1,true)
+2015-11-17 16:33:42,838 - [DEBUG] - from application in play-akka.actor.default-dispatcher-4 
+CompanyDB(None,qqqq,1,false)
 
-2015-11-17 14:29:30,458 - [ERROR] - from play in play-akka.actor.default-dispatcher-4 
-Cannot invoke the action, eventually got an error: repository.ModelExceptions: field must be unique
+2015-11-17 16:33:54,999 - [DEBUG] - from application in play-akka.actor.default-dispatcher-6 
+CompanyDB(None,qqq,1,false)
 
-2015-11-17 14:29:30,465 - [ERROR] - from application in play-akka.actor.default-dispatcher-4 
-
-
-! @6o6fcj8g6 - Internal server error, for (POST) [/create] ->
-
-play.api.Application$$anon$1: Execution exception[[ModelExceptions: field must be unique]]
-	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.11.jar:2.3.9]
-	at play.api.DefaultApplication.handleError(Application.scala:402) [play_2.11.jar:2.3.9]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11.jar:2.3.9]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11.jar:2.3.9]
-	at scala.Option.map(Option.scala:146) [scala-library-2.11.6.jar:na]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:320) [play_2.11.jar:2.3.9]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:316) [play_2.11.jar:2.3.9]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.11.6.jar:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.11.6.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.11.6.jar:na]
-	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11.jar:2.3.9]
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.11.6.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.11.6.jar:na]
-	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.11.6.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.11.6.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library-2.11.6.jar:na]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) [akka-actor_2.11-2.3.4.jar:na]
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) [akka-actor_2.11-2.3.4.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.6.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.6.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.6.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.6.jar:na]
-Caused by: repository.ModelExceptions: field must be unique
-	at repository.cakes.package$SessionCake$class.repository$cakes$SessionCake$$createCustomException(package.scala:28) ~[classes/:na]
-	at repository.cakes.package$SessionCake$$anonfun$withSession$1.apply(package.scala:40) ~[classes/:na]
-	at repository.cakes.package$SessionCake$$anonfun$withSession$1.apply(package.scala:35) ~[classes/:na]
-	at scala.slick.backend.DatabaseComponent$DatabaseDef$class.withSession(DatabaseComponent.scala:34) ~[slick_2.11-2.1.0.jar:na]
-	at scala.slick.jdbc.PlayDatabase.withSession(PlayDatabase.scala:6) ~[play-slick_2.11-0.8.1.jar:0.8.1]
-	at repository.cakes.package$SessionCake$class.withSession(package.scala:35) ~[classes/:na]
-	at repository.DefaultCompanyDAOCake$DefaultCompanyDAO.withSession(CompanyDAO.scala:15) ~[classes/:na]
-	at repository.DefaultCompanyDAOCake$DefaultCompanyDAO.insertByObject(CompanyDAO.scala:50) ~[classes/:na]
-	at repository.DefaultCompanyDAOCake$DefaultCompanyDAO.insertByObject(CompanyDAO.scala:15) ~[classes/:na]
-	at service.DefaultCompanyServiceDAOCake$DefaultCompanyServiceDAO.insertByObject(CompanyServiceDAO.scala:72) ~[classes/:na]
-	at service.DefaultCompanyServiceDAOCake$DefaultCompanyServiceDAO.insertByObject(CompanyServiceDAO.scala:19) ~[classes/:na]
-	at controllers.Application$$anonfun$create$1$$anonfun$apply$1.apply(Application.scala:69) ~[classes/:2.3.9]
-	at controllers.Application$$anonfun$create$1$$anonfun$apply$1.apply(Application.scala:66) ~[classes/:2.3.9]
-	at scala.Option.map(Option.scala:146) [scala-library-2.11.6.jar:na]
-	at controllers.Application$$anonfun$create$1.apply(Application.scala:65) ~[classes/:2.3.9]
-	at controllers.Application$$anonfun$create$1.apply(Application.scala:64) ~[classes/:2.3.9]
-	at play.api.mvc.ActionBuilder$$anonfun$apply$16.apply(Action.scala:433) ~[play_2.11.jar:2.3.9]
-	at play.api.mvc.ActionBuilder$$anonfun$apply$16.apply(Action.scala:432) ~[play_2.11.jar:2.3.9]
-	at play.api.mvc.Action$.invokeBlock(Action.scala:556) ~[play_2.11.jar:2.3.9]
-	at play.api.mvc.Action$.invokeBlock(Action.scala:555) ~[play_2.11.jar:2.3.9]
-	at play.api.mvc.ActionBuilder$$anon$1.apply(Action.scala:518) ~[play_2.11.jar:2.3.9]
-	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11.jar:2.3.9]
-	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11.jar:2.3.9]
-	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11.jar:2.3.9]
-	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:129) ~[play_2.11.jar:2.3.9]
-	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:128) ~[play_2.11.jar:2.3.9]
-	at scala.Option.map(Option.scala:146) [scala-library-2.11.6.jar:na]
-	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:128) ~[play_2.11.jar:2.3.9]
-	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:121) ~[play_2.11.jar:2.3.9]
-	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11.jar:2.3.9]
-	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11.jar:2.3.9]
-	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11.jar:2.3.9]
-	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11.jar:2.3.9]
-	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11.jar:2.3.9]
-	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11.jar:2.3.9]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.6.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.6.jar:na]
-	... 6 common frames omitted
-
-2015-11-17 14:29:38,806 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
-CompanyDB(None,qqweqwe,1,true)
-
-2015-11-17 14:29:48,011 - [DEBUG] - from application in play-akka.actor.default-dispatcher-4 
-CompanyDB(None,qwe,2,false)
-
-2015-11-17 14:29:53,168 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
-CompanyDB(None,qwe,1,false)
-
-2015-11-17 14:34:11,960 - [DEBUG] - from application in play-akka.actor.default-dispatcher-6 
-CompanyDB(None,qqqq,1,true)
-
-2015-11-17 14:35:36,692 - [DEBUG] - from application in play-akka.actor.default-dispatcher-18 
-{"id":17,"name":"qqqq1","value":12,"fullValue":1,"list":[],"parent":true}
+2015-11-17 16:34:13,794 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+CompanyDB(None,qqq,1,true)
 

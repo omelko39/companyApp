@@ -8,15 +8,15 @@
             Value:<input type="number" ng-model="obj.value">
         </div>
 
-        <button data-ng-click="cr = true">+</button>
+        <button data-ng-click="cr = true" ng-show="updateA != true && cr != true ">+</button>
         <button data-ng-click="updateA = true" ng-show="updateA == undefined || updateA == false">Update</button>
-        <button data-ng-click="updateA = false; update(obj)" ng-show="updateA == true">Update</button>
+        <button data-ng-click="updateA = false; update(obj)" ng-show="updateA == true">Save</button>
 
         <div ng-show="cr == true">
             Name:<input type="text" ng-model="tmp.name">
             Value:<input type="number" ng-model="tmp.value">
         </div>
-        <button data-ng-click="create(obj.id, tmp); cr = false">save</button>
+        <button data-ng-click="create(obj.id, tmp); cr = false" ng-if="cr">save</button>
         <button data-ng-click="delete(obj.id)">delete</button>
         <div ng-if="obj.list.length">
             <ng-include src="'assets/include.html'" ng-init="list=obj.list; cr=false"></ng-include>
